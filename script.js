@@ -52,3 +52,5 @@ function game() {
         console.log(`You lost the game! \nPlayer: ${playerScore} Computer: ${computerScore}`);
     }
 }
+
+game();
