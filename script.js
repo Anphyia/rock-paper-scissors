@@ -12,4 +12,22 @@ function getComputerChoice() {
 }
 
 
+function playRound(playerSelection, computerSelection) {
+    let playerChoice = playerSelection.toLowerCase(); 
+    
+    if (playerChoice === computerSelection) {
+        return "It's a tie!";
+    }
+    else if (
+        (playerChoice === "rock" && computerSelection === "scissors") ||
+        (playerChoice === "paper" && computerSelection === "rock") ||
+        (playerChoice === "scissors" && computerSelection === "paper")
+    ) {
+        return `You win! ${playerChoice} beats ${computerSelection}`;
+    } else {
+        return `You lose! ${computerSelection} beats ${playerChoice}`;
+    }
+    
+}
+
 
