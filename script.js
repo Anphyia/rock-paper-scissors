@@ -30,4 +30,25 @@ function playRound(playerSelection, computerSelection) {
     
 }
 
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
 
+    while (playerScore !== 5 && computerScore !== 5) { 
+        let playerSelection = prompt("First to 5 wins!", "");
+        let result = playRound(playerSelection, getComputerChoice());
+        if (result.includes("win")) {
+            playerScore++;
+        } 
+        else if (result.includes("lose")) {
+            computerScore++;
+        } 
+        console.log(result);
+    }
+
+    if (playerScore > computerScore) {
+        console.log(`You won the game! \nPlayer: ${playerScore} Computer: ${computerScore}`);
+    } else {
+        console.log(`You lost the game! \nPlayer: ${playerScore} Computer: ${computerScore}`);
+    }
+}
