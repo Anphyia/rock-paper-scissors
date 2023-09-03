@@ -1,3 +1,5 @@
+'use strict';
+
 function getComputerChoice() {
     let shoot = Math.floor(Math.random() * 3);
 
@@ -11,7 +13,6 @@ function getComputerChoice() {
     }
 }
 
-
 function playRound(playerSelection, computerSelection) {
     let playerChoice = playerSelection.toLowerCase(); 
     
@@ -23,34 +24,42 @@ function playRound(playerSelection, computerSelection) {
         (playerChoice === "paper" && computerSelection === "rock") ||
         (playerChoice === "scissors" && computerSelection === "paper")
     ) {
+        playerScore++;
         return `You win! ${playerChoice} beats ${computerSelection}`;
     } else {
+         computerScore++;
         return `You lose! ${computerSelection} beats ${playerChoice}`;
     }
     
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
+let playerScore = 0;
+let computerScore = 0;
+const maxScore = 5;
 
-    while (playerScore !== 5 && computerScore !== 5) { 
-        let playerSelection = prompt("First to 5 wins!", "");
-        let result = playRound(playerSelection, getComputerChoice());
-        if (result.includes("win")) {
-            playerScore++;
-        } 
-        else if (result.includes("lose")) {
-            computerScore++;
-        } 
-        console.log(result);
-    }
+function initializeGame() {
+    const buttons = document.querySelectorAll("button");
+    const resultDiv = document.getElementById("result");
+    const scoreDiv = document.getElementById("score");
 
-    if (playerScore > computerScore) {
-        console.log(`You won the game! \nPlayer: ${playerScore} Computer: ${computerScore}`);
-    } else {
-        console.log(`You lost the game! \nPlayer: ${playerScore} Computer: ${computerScore}`);
-    }
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (playerScore >= maxScore || computerScore >= maxScore) return;
+        
+            const playerSelection = button.id;
+
+            let result = playRound(playerSelection, getComputerChoice());
+            resultDiv.textContent = result;
+            scoreDiv.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
+
+            if (playerScore >= maxScore) {
+                resultDiv.textContent = `You won the game!`;
+            } else if (computerScore >= maxScore) {
+                resultDiv.textContent = `You lost the game!`;
+            } 
+
+        });
+    });
 }
 
-game();
+initializeGame();
