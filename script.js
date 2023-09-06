@@ -54,8 +54,10 @@ function initializeGame() {
 
             if (playerScore >= maxScore) {
                 resultDiv.textContent = `You won the game!`;
+                resultDiv.classList.add("win-text"); 
             } else if (computerScore >= maxScore) {
                 resultDiv.textContent = `You lost the game!`;
+                resultDiv.classList.add("lost-text"); 
             } 
 
         });

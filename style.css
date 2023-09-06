@@ -1,0 +1,80 @@
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+  
+body {
+    background-size: cover;
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    color:indigo;
+    background-color:honeydew;
+}
+
+h1, h2 {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color:darkslateblue;
+    margin: 12px;
+    
+}
+
+#score {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+}
+
+#result {
+    display: flex;
+    justify-content: center;
+    margin: 0.5em;
+}
+ 
+button {
+    border: 2px solid rgb(124, 113, 198);
+    width: 160px;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-size: 16px;
+    font-weight: 700;
+    color: darkslateblue;
+    background-color: rgb(171, 179, 187);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin: 16px;
+}
+
+.win-text {
+    color: green; 
+    font-weight: bold;
+}
+
+.lost-text {
+    color: red; 
+    font-weight: bold;
+}
+
+a {
+    font-size: 1.125rem;
+    color: darkslateblue;
+    text-decoration: none;
+}
+
+footer {
+    border-top: 2px solid rgb(124, 113, 198);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: auto;
+    padding: 0.2rem 0;
+}
+    
